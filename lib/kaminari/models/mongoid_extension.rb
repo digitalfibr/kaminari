@@ -18,7 +18,7 @@ module Kaminari
       module ClassMethods
         def inherited(kls)
           super
-          kls.send(:include, Kaminari::MongoidExtension::Document.dup)
+          kls.send(:include, Kaminari::MongoidExtension::Document.dup) if kls.superclass == ::Mongoid::Document
         end
       end
     end
